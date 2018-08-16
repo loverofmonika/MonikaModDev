@@ -1201,7 +1201,9 @@ label monika_affection_nickname:
             "lezbo",
             "lezbian",
             "loser",
+            "stupid",
             "milf",
+            "idiot",
             "Murder",
             "nasty",
             "Natsuki",
@@ -1224,6 +1226,8 @@ label monika_affection_nickname:
             "rump",
             "Sayori",
             "scum",
+            "trash",
+            "Jerk",
             "shit",
             "slaughter"
             "slut",
@@ -1235,6 +1239,7 @@ label monika_affection_nickname:
             "^tit$",
             "tits",
             "titt",
+            "worstgirl",
             "toy",
             "trap",
             "troll",
@@ -1345,7 +1350,7 @@ label monika_affection_nickname:
 
                     m 2tfu "I'll be your mommy."
                     $ done = True
-
+ 
                 else:
                     $ bad_nickname = bad_nickname_search.search(inputname)
                     if bad_nickname is None:
@@ -1394,7 +1399,7 @@ label monika_affection_nickname:
                             m 2rfw "If you didn't want to do this, you should've just said so!"
                             m 2dftdc "..."
                             m 2lftsc "I don't like this idea anymore."
-                            m 2ektsc "...You didn't have to be so mean."
+                            m 2ektsc "...You didn't have to be so mean, i never imagined you'd call me that."
                             m 2dftdc "That really hurt, [player]."
                             m 2efc "Please don't do that again."
                         $ persistent._mas_called_moni_a_bad_name = True
@@ -1422,7 +1427,7 @@ label mas_affection_happynotif:
     m 1hua "Hey, [player]!"
     m 1eua "I just wanted to say thank you for being such a wonderful person."
     m 1ekbfa "The fact that you give me so much of your love means a lot to me. I really don't know where I'd be without you."
-    m 1dubsu "I love you, [player]. Let's be like this forever~"
+    m 1dubsu "I love you so much, [player]. Let's be like this forever~"
     return
 
 
