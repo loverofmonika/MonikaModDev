@@ -18,6 +18,9 @@ init -1 python in mas_hotkeys:
     # False means they will not
     mu_stop_enabled = True
 
+    # True means dont allow windows to be hidden
+    no_window_hiding = False
+
 
 init python:
 
@@ -137,6 +140,13 @@ init python:
             _invoke_game_menu()
 
 
+    def _mas_hide_windows():
+        """
+        Wrapper around the _hide_windows label that hides windows
+        """
+        if not store.mas_hotkeys.no_window_hiding:
+            renpy.call_in_new_context("_hide_windows")
+
     def set_keymaps():
         #
         # Sets the keymaps
@@ -161,6 +171,10 @@ init python:
         config.keymap["mas_game_menu"] = list(config.keymap["game_menu"])
         config.keymap["game_menu"] = []
 
+        # get and replcae the hide_windows with our version
+        config.keymap["mas_hide_windows"] = list(config.keymap["hide_windows"])
+        config.keymap["hide_windows"] = []
+
         # Define what those actions call
         config.underlay.append(
             renpy.Keymap(open_dialogue=_mas_hk_show_dialogue_box)
@@ -171,6 +185,7 @@ init python:
         config.underlay.append(renpy.Keymap(inc_musicvol=_mas_hk_inc_musicvol))
         config.underlay.append(renpy.Keymap(dec_musicvol=_mas_hk_dec_musicvol))
         config.underlay.append(renpy.Keymap(mas_game_menu=_mas_game_menu))
+        config.underlay.append(renpy.Keymap(mas_hide_windows=_mas_hide_windows))
 
         # finally enable those buttons
         mas_HKDropShield()
